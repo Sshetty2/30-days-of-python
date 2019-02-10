@@ -44,6 +44,10 @@ Team CFE
             return self.messages
         return []
 
+    def __str__(self):
+        display ="Name = {}, Amount = {},  Email = {}".format(self.name, self.amount, self.email)
+        return display
+
 
 def some_rando():
     print("yehahahsdfa")
