@@ -4,7 +4,10 @@ import time
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 url = "http://www.chrisburkard.com/"
 
@@ -14,9 +17,9 @@ web_soup = BeautifulSoup(web_r.text, 'html.parser')
 print(web_soup.findAll("img"))
 
 #<img src=''/>
-
-
-driver = webdriver.Firefox()
+binary = FirefoxBinary('/mnt/c/Program Files/Mozilla Firefox/firefox.exe')
+driver = webdriver.Firefox(firefox_binary=binary)
+print()
 driver.get(url)
 
 
@@ -44,7 +47,7 @@ while iterations < 10:
     iterations += 1
     time.sleep(5)
 
-
+driver.quit()
 
 
 
